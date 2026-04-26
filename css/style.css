@@ -37,7 +37,8 @@ nav {
   box-shadow: 0 2px 8px rgba(22,163,74,0.3);
 }
 
-.nav-logo { font-weight: 800; font-size: 18px; text-decoration: none; color: var(--white); }
+.nav-logo { text-decoration: none; display: flex; align-items: center; }
+.nav-logo img { height: 44px; width: auto; display: block; border-radius: 6px; }
 
 .nav-links { display: flex; gap: 20px; list-style: none; }
 .nav-links a { color: var(--white); text-decoration: none; font-size: 14px; opacity: 0.85; transition: opacity 0.2s; }
