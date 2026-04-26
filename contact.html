@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Total e Solution</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">🌿 Total e Solution</a>
+    <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" onclick="toggleNav()">Home</a></li>
+      <li><a href="printing.html" onclick="toggleNav()">Printing</a></li>
+      <li><a href="grocery.html" onclick="toggleNav()">Grocery</a></li>
+      <li><a href="lpg.html" onclick="toggleNav()">LPG Gas</a></li>
+      <li><a href="contact.html" class="active" onclick="toggleNav()">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <h1>Find Us</h1>
+    <p>We're just around the corner — come visit or order online</p>
+  </section>
+
+  <div class="section" style="max-width: 640px;">
+    <div class="contact-cards">
+      <div class="contact-card">
+        <span class="contact-icon">📍</span>
+        <div>
+          <h4>Address</h4>
+          <p>Shop No. XX, XYZ Colony<br>Varanasi, Uttar Pradesh — 221XXX</p>
+        </div>
+      </div>
+      <div class="contact-card">
+        <span class="contact-icon">📞</span>
+        <div>
+          <h4>Phone / WhatsApp</h4>
+          <p><a href="tel:+91XXXXXXXXXX" style="color:var(--green);">+91 XXXXXXXXXX</a></p>
+        </div>
+      </div>
+      <div class="contact-card">
+        <span class="contact-icon">🕐</span>
+        <div>
+          <h4>Business Hours</h4>
+          <p>Monday – Saturday: 9:00 AM – 8:00 PM<br>Sunday: Closed</p>
+        </div>
+      </div>
+      <div class="contact-card">
+        <span class="contact-icon">💬</span>
+        <div>
+          <h4>WhatsApp</h4>
+          <p><a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener noreferrer" style="color:var(--green);">Chat with us on WhatsApp →</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="map-container">
+      <iframe
+        src="https://maps.google.com/maps?q=25.6398947,82.5437759&z=16&output=embed"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Total e Solution location">
+      </iframe>
+    </div>
+  </div>
+
+  <footer>
+    <strong>Total e Solution</strong> &nbsp;|&nbsp;
+    📞 <a href="tel:+91XXXXXXXXXX">+91 XXXXXXXXXX</a> &nbsp;|&nbsp;
+    📍 Shop Address, Varanasi, UP &nbsp;|&nbsp;
+    🕐 Mon–Sat: 9AM–8PM
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('nav-links').classList.toggle('open');
+      const open = document.getElementById('nav-links').classList.contains('open');
+      document.querySelector('.nav-toggle').setAttribute('aria-expanded', open);
+    }
+  </script>
+</body>
+</html>

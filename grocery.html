@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grocery — Total e Solution</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">🌿 Total e Solution</a>
+    <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" onclick="toggleNav()">Home</a></li>
+      <li><a href="printing.html" onclick="toggleNav()">Printing</a></li>
+      <li><a href="grocery.html" class="active" onclick="toggleNav()">Grocery</a></li>
+      <li><a href="lpg.html" onclick="toggleNav()">LPG Gas</a></li>
+      <li><a href="contact.html" onclick="toggleNav()">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-icon">🛒</div>
+    <h1>Grocery</h1>
+    <p>Fresh produce, daily essentials &amp; household items — delivered fast</p>
+  </section>
+
+  <div class="section">
+    <h2 class="section-title">What We Offer</h2>
+    <div class="offer-list">
+      <div class="offer-item">✅ Rice, wheat flour, pulses &amp; grains</div>
+      <div class="offer-item">✅ Cooking oil, ghee &amp; spices</div>
+      <div class="offer-item">✅ Fresh vegetables &amp; fruits</div>
+      <div class="offer-item">✅ Packaged snacks &amp; beverages</div>
+      <div class="offer-item">✅ Dairy products — milk, curd, butter</div>
+      <div class="offer-item">✅ Soap, detergent &amp; household cleaners</div>
+      <div class="offer-item">✅ Personal care &amp; hygiene products</div>
+    </div>
+
+    <div class="order-form-box">
+      <h3>📋 Place Your Order via WhatsApp</h3>
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" placeholder="e.g. Priya Sharma" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" pattern="[6-9][0-9]{9}" placeholder="e.g. 9876543210" required>
+      </div>
+      <div class="form-group">
+        <label for="notes">Items you need</label>
+        <textarea id="notes" placeholder="e.g. 2kg rice, 1L mustard oil, 500g sugar..."></textarea>
+      </div>
+      <button class="btn btn-whatsapp" onclick="sendWhatsApp('Grocery')">
+        💬 Send Order on WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <footer>
+    <strong>Total e Solution</strong> &nbsp;|&nbsp;
+    📞 <a href="tel:+91XXXXXXXXXX">+91 XXXXXXXXXX</a> &nbsp;|&nbsp;
+    📍 Shop Address, Varanasi, UP &nbsp;|&nbsp;
+    🕐 Mon–Sat: 9AM–8PM
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('nav-links').classList.toggle('open');
+      const open = document.getElementById('nav-links').classList.contains('open');
+      document.querySelector('.nav-toggle').setAttribute('aria-expanded', open);
+    }
+    function sendWhatsApp(service) {
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const notes = document.getElementById('notes').value.trim();
+      if (!name || !phone) { alert('Please enter your name and phone number.'); return; }
+      const msg = `Hi! I want to order from *${service}*.\n\nName: ${name}\nPhone: ${phone}\nDetails: ${notes || 'Not specified'}`;
+      window.open(`https://wa.me/91XXXXXXXXXX?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
+    }
+  </script>
+</body>
+</html>

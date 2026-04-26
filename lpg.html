@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LPG Gas — Total e Solution</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">🌿 Total e Solution</a>
+    <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" onclick="toggleNav()">Home</a></li>
+      <li><a href="printing.html" onclick="toggleNav()">Printing</a></li>
+      <li><a href="grocery.html" onclick="toggleNav()">Grocery</a></li>
+      <li><a href="lpg.html" class="active" onclick="toggleNav()">LPG Gas</a></li>
+      <li><a href="contact.html" onclick="toggleNav()">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-icon">🔥</div>
+    <h1>LPG Gas Distributor</h1>
+    <p>Fast cylinder booking &amp; home delivery — HP, Indane &amp; Bharat Gas</p>
+  </section>
+
+  <div class="section">
+    <h2 class="section-title">What We Offer</h2>
+    <div class="offer-list">
+      <div class="offer-item">✅ HP Gas cylinder booking &amp; delivery</div>
+      <div class="offer-item">✅ Indane Gas cylinder booking &amp; delivery</div>
+      <div class="offer-item">✅ Bharat Gas cylinder booking &amp; delivery</div>
+      <div class="offer-item">✅ New LPG connection registration assistance</div>
+      <div class="offer-item">✅ Home delivery within 24 hours</div>
+      <div class="offer-item">✅ Commercial &amp; domestic cylinders available</div>
+    </div>
+
+    <div class="order-form-box">
+      <h3>📋 Book Your Cylinder via WhatsApp</h3>
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" placeholder="e.g. Sunil Verma" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" pattern="[6-9][0-9]{9}" placeholder="e.g. 9876543210" required>
+      </div>
+      <div class="form-group">
+        <label for="notes">Delivery address &amp; gas type</label>
+        <textarea id="notes" placeholder="e.g. HP Gas, 14.2kg, House no. 12, Shivpur, Varanasi..."></textarea>
+      </div>
+      <button class="btn btn-whatsapp" onclick="sendWhatsApp('LPG Gas')">
+        💬 Book Cylinder on WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <footer>
+    <strong>Total e Solution</strong> &nbsp;|&nbsp;
+    📞 <a href="tel:+91XXXXXXXXXX">+91 XXXXXXXXXX</a> &nbsp;|&nbsp;
+    📍 Shop Address, Varanasi, UP &nbsp;|&nbsp;
+    🕐 Mon–Sat: 9AM–8PM
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('nav-links').classList.toggle('open');
+      const open = document.getElementById('nav-links').classList.contains('open');
+      document.querySelector('.nav-toggle').setAttribute('aria-expanded', open);
+    }
+    function sendWhatsApp(service) {
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const notes = document.getElementById('notes').value.trim();
+      if (!name || !phone) { alert('Please enter your name and phone number.'); return; }
+      const msg = `Hi! I want to book from *${service}*.\n\nName: ${name}\nPhone: ${phone}\nDetails: ${notes || 'Not specified'}`;
+      window.open(`https://wa.me/91XXXXXXXXXX?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
+    }
+  </script>
+</body>
+</html>

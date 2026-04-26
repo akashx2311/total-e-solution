@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Printing &amp; Stationery — Total e Solution</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">🌿 Total e Solution</a>
+    <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" onclick="toggleNav()">Home</a></li>
+      <li><a href="printing.html" class="active" onclick="toggleNav()">Printing</a></li>
+      <li><a href="grocery.html" onclick="toggleNav()">Grocery</a></li>
+      <li><a href="lpg.html" onclick="toggleNav()">LPG Gas</a></li>
+      <li><a href="contact.html" onclick="toggleNav()">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-icon">🖨️</div>
+    <h1>Printing &amp; Stationery</h1>
+    <p>Quality prints and all your stationery needs — ready when you need them</p>
+  </section>
+
+  <div class="section">
+    <h2 class="section-title">What We Offer</h2>
+    <div class="offer-list">
+      <div class="offer-item">✅ Document &amp; report printing (black &amp; white / colour)</div>
+      <div class="offer-item">✅ Photo printing — passport size, 4×6, and custom sizes</div>
+      <div class="offer-item">✅ Photocopy &amp; scanning</div>
+      <div class="offer-item">✅ Lamination</div>
+      <div class="offer-item">✅ Spiral binding &amp; book binding</div>
+      <div class="offer-item">✅ Notebooks, registers &amp; diaries</div>
+      <div class="offer-item">✅ Pens, pencils &amp; art supplies</div>
+      <div class="offer-item">✅ Envelopes, files &amp; folders</div>
+    </div>
+
+    <div class="order-form-box">
+      <h3>📋 Place Your Order via WhatsApp</h3>
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" placeholder="e.g. Ramesh Kumar" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" pattern="[6-9][0-9]{9}" placeholder="e.g. 9876543210" required>
+      </div>
+      <div class="form-group">
+        <label for="notes">What do you need?</label>
+        <textarea id="notes" placeholder="e.g. 10 copies of A4 document, colour print, lamination..."></textarea>
+      </div>
+      <button class="btn btn-whatsapp" onclick="sendWhatsApp('Printing & Stationery')">
+        💬 Send Order on WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <footer>
+    <strong>Total e Solution</strong> &nbsp;|&nbsp;
+    📞 <a href="tel:+91XXXXXXXXXX">+91 XXXXXXXXXX</a> &nbsp;|&nbsp;
+    📍 Shop Address, Varanasi, UP &nbsp;|&nbsp;
+    🕐 Mon–Sat: 9AM–8PM
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('nav-links').classList.toggle('open');
+      const open = document.getElementById('nav-links').classList.contains('open');
+      document.querySelector('.nav-toggle').setAttribute('aria-expanded', open);
+    }
+    function sendWhatsApp(service) {
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const notes = document.getElementById('notes').value.trim();
+      if (!name || !phone) { alert('Please enter your name and phone number.'); return; }
+      const msg = `Hi! I want to order from *${service}*.\n\nName: ${name}\nPhone: ${phone}\nDetails: ${notes || 'Not specified'}`;
+      window.open(`https://wa.me/91XXXXXXXXXX?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
+    }
+  </script>
+</body>
+</html>
